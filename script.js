@@ -171,7 +171,10 @@ const myFavoriteFootballTeam = {
     ],
 };
 
+// the freeze() function is not allow to change the obj
 Object.freeze(myFavoriteFootballTeam);
+
+// get the data from the json and use the object for variables declaring
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
 
@@ -180,6 +183,10 @@ teamName.textContent = team;
 worldCupYear.textContent = year;
 headCoach.textContent = coachName;
 
+// call back function for the EventListener
+// 1. assign players to arr
+// 2. the .map() function is for returning the arr element like a for loop
+// 3. the .join() function is for joining each elements.
 const setPlayerCards = (arr = players) => {
     playerCards.innerHTML += arr
         .map(
@@ -199,6 +206,7 @@ const setPlayerCards = (arr = players) => {
 playersDropdownList.addEventListener("change", (e) => {
     playerCards.innerHTML = "";
 
+    // e is for the playersdrodownlist, and the target.value to get the attribute value
     switch (e.target.value) {
         case "nickname":
             setPlayerCards(players.filter((player) => player.nickname !== null));
